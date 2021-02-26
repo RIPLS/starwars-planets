@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+
+
+import { PlanetsService } from '../../services/planets.service';
+import { PlanetEntity } from '../../entities/planet.entity';
+
 
 @Component({
   selector: 'app-home',
@@ -7,9 +13,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  planetiD: number = 1;
+  planetData: PlanetEntity[]=[];
 
-  ngOnInit(): void {
+  public planet: PlanetEntity = new PlanetEntity();
+
+  constructor(
+    public planetsService: PlanetsService,
+  ) { }
+
+  ngOnInit() {
+    //Get Info
+    this.planetData= this.planetsService.GetById(this.planetiD).subscribe(
+      (resp) => {
+        this.planet = resp["data"];
+      }, (err) => {
+        // this.notificacion.showerror("Rendicion error",err.error.message);
+      });
   }
 
 }
+
+
