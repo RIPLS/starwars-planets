@@ -1,4 +1,4 @@
-export interface Film {
+export interface FilmEntity {
     id: number;
     title: string;
     url: string;

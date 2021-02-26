@@ -1,6 +1,6 @@
 <div class="container">
   <div class="title">
-    <h1>Planet Name</h1>
+    <h1>{{planetData.name}}</h1>
   </div>
   <!-- Row -->
   <div class="row info">
@@ -12,19 +12,34 @@
     <div class="col-lg-6">
       <div class="card mb-4 shadow-sm">
         <div class="card-header">
-          <h4 class="my-0 fw-normal">{{planetData}}</h4>
+          <h4 class="my-0 fw-normal">{{planetData.name}}</h4>
         </div>
         <div class="card-body">
-          <h1 class="card-title pricing-card-title">Population <small class="text-muted">Population</small></h1>
+          <h1 class="card-title pricing-card-title">Population <small class="text-muted">{{planetData.population}}
+              hab</small></h1>
           <ul class="list-unstyled mt-3 mb-4">
-            <li>Diameter</li>
-            <li>Climate</li>
-            <li>Terrain</li>
-            <li>Gravity</li>
-            <li>Residents</li>
-            <li>Films</li>
+            <li>Diameter: {{planetData.diameter}} km</li>
+            <li>Climate: {{planetData.climate}}</li>
+            <li>Terrain: {{planetData.terrain}}</li>
+            <li>Gravity: {{planetData.gravity}}</li>
+            <li>Residents:</li>
+            <ul>
+              <ng-container *ngFor="let residente of planetResidents; let i=index">
+                <li *ngIf="hidden">
+                  <span>{{residente.name}}</span>
+                </li>
+              </ng-container>
+            </ul>
+            <li>Films:</li>
+            <ul>
+              <ng-container *ngFor="let film of planetFilms; let i=index">
+                <li *ngIf="hidden">
+                  <span>{{film.title}}</span>
+                </li>
+              </ng-container>
+            </ul>
+            <button type="button" class="w-100 btn btn-lg btn-outline-primary" (click)="toggle()">{{showMore}}</button>
           </ul>
-          <!-- <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button> -->
         </div>
       </div>
     </div><!-- /.row -->

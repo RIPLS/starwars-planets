@@ -1,19 +1,15 @@
-import { Film } from "./film.entity";
-import { People } from "./people.entity";
+import { FilmEntity } from "./film.entity";
+import { PeopleEntity } from "./people.entity";
 
-export class PlanetEntity {
+export interface PlanetEntity {
     name: string;
     population: string;
-    residents: Array<People>;
+    residents: string[];
     diameter: string; 
     terrain: string; //Strings separados por coma
     climate: string; //Strings separados por coma
-    films: Array<Film>; 
+    films: string[]; 
     gravity: string; //Valor de gravedad de referencia
     water: string; //Porcentaje de agua
     url: string;
-
-    constructor(){
-		
-    }
 }
