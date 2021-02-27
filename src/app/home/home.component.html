@@ -1,7 +1,5 @@
 <div class="container">
-  <div class="title">
-    <h1>{{planetData.name}}</h1>
-  </div>
+  <h1 class="title">{{planetData.name}}</h1>
   <!-- Row -->
   <div class="row info">
     <!-- Planet-->
@@ -12,7 +10,7 @@
     <div class="col-lg-6">
       <div class="card mb-4 shadow-sm">
         <div class="card-header">
-          <h4 class="my-0 fw-normal">{{planetData.name}}</h4>
+          <h4 class="my-0 fw-normal">Planet Name: {{planetData.name}}</h4>
         </div>
         <div class="card-body">
           <h1 class="card-title pricing-card-title">Population <small class="text-muted">{{planetData.population}}
@@ -38,7 +36,10 @@
                 </li>
               </ng-container>
             </ul>
-            <button type="button" class="w-100 btn btn-lg btn-outline-primary" (click)="toggle()">{{showMore}}</button>
+            <div class="footer-button">
+              <button type="button" class="w-100 btn btn-lg btn-outline-primary"
+                (click)="toggle()">{{showMore}}</button>
+            </div>
           </ul>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import { FilmEntity } from "./film.entity";
-import { PeopleEntity } from "./people.entity";
 
 export interface PlanetEntity {
+    id: string;
     name: string;
     population: string;
     residents: string[];

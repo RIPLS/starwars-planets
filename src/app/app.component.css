@@ -1,13 +1,15 @@
 body {
-  min-height: 100%;
+  padding-top: 100px;
   background: url(https://orsted.com/-/media/WWW/Images/Corp/Campaign/SpaceSafari/space-safari-background.png) repeat;
-  position: fixed;
   top: 0;
   left: 0;
   min-width: 100%;
   min-height: 100%;
-}
+  overflow: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 
-.home {
-  padding-top: 100px;
 }
