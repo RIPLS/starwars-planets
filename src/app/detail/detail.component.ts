@@ -8,17 +8,17 @@ import { FilmEntity } from '../../entities/film.entity';
 
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-detail',
+  templateUrl: './detail.component.html',
+  styleUrls: ['./detail.component.css']
 })
-export class HomeComponent implements OnInit {
+export class DetailComponent implements OnInit {
 
   planetData: PlanetEntity;
   planetResidents: PeopleEntity[] = [];
   planetFilms: FilmEntity[] = [];
   planetID: number = 1;
-  showMore = 'show More';
+  showMore = 'Show more';
   hidden: boolean;
   resident: PeopleEntity;
   film: FilmEntity;
@@ -76,10 +76,10 @@ export class HomeComponent implements OnInit {
   toggle() {
     this.hidden = !this.hidden;
     if (this.hidden) {
-      this.showMore = 'show less'
+      this.showMore = 'Show less'
     }
     if (!this.hidden) {
-      this.showMore = ' show more'
+      this.showMore = ' Show more'
     }
   }
 

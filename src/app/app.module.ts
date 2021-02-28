@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './components/nav/nav.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -14,7 +15,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { HomeComponent } from './home/home.component';
+import { DetailComponent } from './detail/detail.component';
 import { PlanetComponent } from './components/planet/planet.component';
 import { PlanetsService } from '../services/planets.service';
 
@@ -22,7 +23,7 @@ import { PlanetsService } from '../services/planets.service';
   declarations: [
     AppComponent,
     NavComponent,
-    HomeComponent,
+    DetailComponent,
     PlanetComponent,
     DashboardComponent,
   ],
@@ -35,7 +36,8 @@ import { PlanetsService } from '../services/planets.service';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    FormsModule,
   ],
   providers: [
     PlanetsService,

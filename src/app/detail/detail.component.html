@@ -22,6 +22,9 @@
             <li>Gravity: {{planetData.gravity}}</li>
             <li>Residents:</li>
             <ul>
+              <li *ngIf="!hidden">
+                <span>{{planetResidents[0].name}}</span>
+              </li>
               <ng-container *ngFor="let residente of planetResidents; let i=index">
                 <li *ngIf="hidden">
                   <span>{{residente.name}}</span>
@@ -30,6 +33,9 @@
             </ul>
             <li>Films:</li>
             <ul>
+              <li *ngIf="!hidden">
+                <span>{{planetFilms[0].title}}</span>
+              </li>
               <ng-container *ngFor="let film of planetFilms; let i=index">
                 <li *ngIf="hidden">
                   <span>{{film.title}}</span>
