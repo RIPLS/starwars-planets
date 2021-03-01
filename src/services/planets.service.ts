@@ -21,7 +21,6 @@ export class PlanetsService {
     let params = new HttpParams();
     params = params.set('page', page.toString());
     if(search) params = params.set('search', search);
-
     return this.http.get<ApiResponse<PlanetEntity>>(this.apiUrl, { params: params});
   }
 

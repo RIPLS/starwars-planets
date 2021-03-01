@@ -17,3 +17,8 @@
   margin-bottom: 50px;
   text-align: center;
 }
+
+.clearButton {
+  margin: 10px;
+  align-self: end;
+}

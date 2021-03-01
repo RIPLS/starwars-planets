@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute} from '@angular/router';
+import {Location} from '@angular/common';
 
 import { PlanetsService } from '../../services/planets.service';
 import { PlanetEntity } from '../../entities/planet.entity';
@@ -19,12 +20,13 @@ export class DetailComponent implements OnInit {
   planetFilms: FilmEntity[] = [];
   planetID: number = 1;
   showMore = 'Show more';
-  hidden: boolean;
+  showElements: boolean = false;
   resident: PeopleEntity;
   film: FilmEntity;
 
   constructor(
     public planetsService: PlanetsService,
+    private _location: Location,
     private route: ActivatedRoute,
   ) { }
 
@@ -35,6 +37,7 @@ export class DetailComponent implements OnInit {
       this.planetsService.GetPlanetById(this.planetID).subscribe(
         (resp) => {
           this.planetData = resp;
+          this.planetData.backgroundurl="/assets/images/planets/" + this.planetID + ".png";
           this.getResidents(this.planetData);
           this.getFilms(this.planetData);
         }, (err) => {
@@ -44,7 +47,9 @@ export class DetailComponent implements OnInit {
 
   }
 
-
+  onBack() {
+    this._location.back();
+  }
 
   //Residents
   getResidents(data: PlanetEntity) {
@@ -74,11 +79,11 @@ export class DetailComponent implements OnInit {
 
   //Show More or Less
   toggle() {
-    this.hidden = !this.hidden;
-    if (this.hidden) {
+    this.showElements = !this.showElements;
+    if (this.showElements) {
       this.showMore = 'Show less'
     }
-    if (!this.hidden) {
+    if (!this.showElements) {
       this.showMore = ' Show more'
     }
   }

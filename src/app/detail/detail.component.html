@@ -1,10 +1,17 @@
 <div class="container">
-  <h1 class="title">{{planetData.name}}</h1>
+  <div class="row head">
+    <div class="col-10">
+      <span class="title">{{planetData.name}}</span>
+    </div>
+    <div class="col-2">
+      <button class="btn btn-outline-success buttonTest" style="float: right;" type="submit" (click)="onBack()" >back</button>
+    </div>
+  </div>
   <!-- Row -->
   <div class="row info">
     <!-- Planet-->
     <div class="col-lg-6 planetContainer">
-      <app-planet></app-planet>
+      <app-planet [planetData]="planetData"></app-planet>
     </div>
     <!-- Table-->
     <div class="col-lg-6">
@@ -20,28 +27,24 @@
             <li>Climate: {{planetData.climate}}</li>
             <li>Terrain: {{planetData.terrain}}</li>
             <li>Gravity: {{planetData.gravity}}</li>
-            <li>Residents:</li>
-            <ul>
-              <li *ngIf="!hidden">
-                <span>{{planetResidents[0].name}}</span>
-              </li>
-              <ng-container *ngFor="let residente of planetResidents; let i=index">
-                <li *ngIf="hidden">
-                  <span>{{residente.name}}</span>
-                </li>
-              </ng-container>
-            </ul>
-            <li>Films:</li>
-            <ul>
-              <li *ngIf="!hidden">
-                <span>{{planetFilms[0].title}}</span>
-              </li>
-              <ng-container *ngFor="let film of planetFilms; let i=index">
-                <li *ngIf="hidden">
-                  <span>{{film.title}}</span>
-                </li>
-              </ng-container>
-            </ul>
+            <div *ngIf="showElements">
+              <li>Residents:</li>
+              <ul>
+                <ng-container *ngFor="let residente of planetResidents; let i=index">
+                  <li>
+                    <span>{{residente.name}}</span>
+                  </li>
+                </ng-container>
+              </ul>
+              <li *ngIf="showElements">Films:</li>
+              <ul *ngIf="showElements">
+                <ng-container *ngFor="let film of planetFilms; let i=index">
+                  <li>
+                    <span>{{film.title}}</span>
+                  </li>
+                </ng-container>
+              </ul>
+            </div>
             <div class="footer-button">
               <button type="button" class="w-100 btn btn-lg btn-outline-primary"
                 (click)="toggle()">{{showMore}}</button>

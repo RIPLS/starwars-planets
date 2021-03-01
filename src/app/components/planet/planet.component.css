@@ -15,9 +15,8 @@
 }
 
 .planet .background {
-  animation: translateBackground 50s infinite linear;
   /* Rotation*/
-  background: url(http://artem.anmedio.ru/dev/planet/mars.jpg) repeat-x;
+  animation: translateBackground 50s infinite linear;
   width: 300px;
   height: 300px;
   position: absolute;

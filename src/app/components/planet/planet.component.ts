@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { PlanetEntity } from 'src/entities/planet.entity';
 
 @Component({
   selector: 'app-planet',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlanetComponent implements OnInit {
 
+  @Input() planetData: PlanetEntity;
+  planetBackground: string;
+
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.planetBackground = 'url(' + this.planetData.backgroundurl + ') repeat-x';
   }
 
 }

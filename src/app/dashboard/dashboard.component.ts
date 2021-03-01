@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { tap } from 'rxjs/operators';
+
 
 import { PlanetsService } from '../../services/planets.service';
 import { PlanetDataSource } from 'src/entities/planet-data-source.entity';
 import { PlanetEntity } from 'src/entities/planet.entity';
-import { MatPaginator } from '@angular/material/paginator';
-import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,6 +19,7 @@ export class DashboardComponent implements OnInit {
 
   dataSource: PlanetDataSource;
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
   displayedColumns = ["seqNo", "name", "population"];
   searchText: string;
 
@@ -39,9 +42,13 @@ export class DashboardComponent implements OnInit {
   }
 
   ngAfterViewInit() {
+    this.dataSource.setSort(this.sort);
+
     this.paginator.page
       .pipe(
-        tap(() => this.loadPlanetsPage())
+        tap(() => {
+          this.loadPlanetsPage()
+        })
       )
       .subscribe();
   }
@@ -49,6 +56,11 @@ export class DashboardComponent implements OnInit {
   loadPlanetsPage() {
     this.dataSource.loadPlanets(
       this.paginator.pageIndex + 1, this.searchText);
+  }
+
+  clearFilter(){
+    this.searchText = undefined;
+    this.router.navigateByUrl('/');
   }
 
   onRowClicked(planet: PlanetEntity) {
