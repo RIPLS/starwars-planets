@@ -38,8 +38,6 @@ export class DetailComponent implements OnInit {
         (resp) => {
           this.planetData = resp;
           this.planetData.backgroundurl="/assets/images/planets/" + this.planetID + ".png";
-          this.getResidents(this.planetData);
-          this.getFilms(this.planetData);
         }, (err) => {
           console.log(err.error.message);
         });
@@ -52,9 +50,9 @@ export class DetailComponent implements OnInit {
   }
 
   //Residents
-  getResidents(data: PlanetEntity) {
-    for (var item = 0; item < data.residents.length; item++) {
-      this.planetsService.GetResidentsByURL(data.residents[item]).subscribe(
+  getResidents() {
+    for (var item = 0; item < this.planetData.residents.length; item++) {
+      this.planetsService.GetResidentsByURL(this.planetData.residents[item]).subscribe(
         (resp) => {
           this.resident = resp;
           this.planetResidents.push(this.resident);
@@ -65,9 +63,9 @@ export class DetailComponent implements OnInit {
   }
 
   //Residents
-  getFilms(data: PlanetEntity) {
-    for (var item = 0; item < data.films.length; item++) {
-      this.planetsService.GetFilmsByURL(data.films[item]).subscribe(
+  getFilms() {
+    for (var item = 0; item < this.planetData.films.length; item++) {
+      this.planetsService.GetFilmsByURL(this.planetData.films[item]).subscribe(
         (resp) => {
           this.film = resp;
           this.planetFilms.push(this.film);
@@ -81,6 +79,10 @@ export class DetailComponent implements OnInit {
   toggle() {
     this.showElements = !this.showElements;
     if (this.showElements) {
+      if (!this.planetResidents.length || !this.planetFilms.length){
+        this.getResidents();
+        this.getFilms();
+      }
       this.showMore = 'Show less'
     }
     if (!this.showElements) {

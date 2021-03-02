@@ -3,6 +3,12 @@
   align-items: center;
 }
 
+.spinner-container {
+  margin: auto;
+  width: 10%;
+  padding: 10px;
+}
+
 .title{
   text-align: left;
   color: black;

@@ -1,57 +1,66 @@
 <div class="container">
-  <div class="row head">
-    <div class="col-10">
-      <span class="title">{{planetData.name}}</span>
-    </div>
-    <div class="col-2">
-      <button class="btn btn-outline-success buttonTest" style="float: right;" type="submit" (click)="onBack()" >back</button>
-    </div>
-  </div>
-  <!-- Row -->
-  <div class="row info">
-    <!-- Planet-->
-    <div class="col-lg-6 planetContainer">
-      <app-planet [planetData]="planetData"></app-planet>
-    </div>
-    <!-- Table-->
-    <div class="col-lg-6">
-      <div class="card mb-4 shadow-sm">
-        <div class="card-header">
-          <h4 class="my-0 fw-normal">Planet Name: {{planetData.name}}</h4>
+  <div *ngIf="planetData; else loading">
+      <div class="row head">
+        <div class="col-10">
+          <span class="title">{{planetData.name}}</span>
         </div>
-        <div class="card-body">
-          <h1 class="card-title pricing-card-title">Population <small class="text-muted">{{planetData.population}}
-              hab</small></h1>
-          <ul class="list-unstyled mt-3 mb-4">
-            <li>Diameter: {{planetData.diameter}} km</li>
-            <li>Climate: {{planetData.climate}}</li>
-            <li>Terrain: {{planetData.terrain}}</li>
-            <li>Gravity: {{planetData.gravity}}</li>
-            <div *ngIf="showElements">
-              <li>Residents:</li>
-              <ul>
-                <ng-container *ngFor="let residente of planetResidents; let i=index">
-                  <li>
-                    <span>{{residente.name}}</span>
-                  </li>
-                </ng-container>
-              </ul>
-              <li *ngIf="showElements">Films:</li>
-              <ul *ngIf="showElements">
-                <ng-container *ngFor="let film of planetFilms; let i=index">
-                  <li>
-                    <span>{{film.title}}</span>
-                  </li>
-                </ng-container>
-              </ul>
-            </div>
-            <div class="footer-button">
-              <button type="button" class="w-100 btn btn-lg btn-outline-primary"
-                (click)="toggle()">{{showMore}}</button>
-            </div>
-          </ul>
+        <div class="col-2">
+          <button class="btn btn-outline-success buttonTest" style="float: right;" type="submit"
+            (click)="onBack()">back</button>
         </div>
       </div>
-    </div><!-- /.row -->
+      <!-- Row -->
+      <div class="row info">
+        <!-- Planet-->
+        <div class="col-lg-6 planetContainer">
+          <app-planet [planetData]="planetData"></app-planet>
+        </div>
+        <!-- Table-->
+        <div class="col-lg-6">
+          <div class="card mb-4 shadow-sm">
+            <div class="card-header">
+              <h4 class="my-0 fw-normal">Planet Name: {{planetData.name}}</h4>
+            </div>
+            <div class="card-body">
+              <h1 class="card-title pricing-card-title">Population <small class="text-muted">{{planetData.population}}
+                  hab</small></h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>Diameter: {{planetData.diameter}} km</li>
+                <li>Climate: {{planetData.climate}}</li>
+                <li>Terrain: {{planetData.terrain}}</li>
+                <li>Gravity: {{planetData.gravity}}</li>
+                <div *ngIf="showElements">
+                  <li>Residents:</li>
+                  <ul>
+                    <ng-container *ngFor="let residente of planetResidents; let i=index">
+                      <li>
+                        <span>{{residente.name}}</span>
+                      </li>
+                    </ng-container>
+                  </ul>
+                  <li *ngIf="showElements">Films:</li>
+                  <ul *ngIf="showElements">
+                    <ng-container *ngFor="let film of planetFilms; let i=index">
+                      <li>
+                        <span>{{film.title}}</span>
+                      </li>
+                    </ng-container>
+                  </ul>
+                </div>
+                <div class="footer-button">
+                  <button type="button" class="w-100 btn btn-lg btn-outline-primary"
+                    (click)="toggle()">{{showMore}}</button>
+                </div>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
   </div>
+
+  <ng-template #loading>
+      <div class="spinner-container">
+        <mat-spinner></mat-spinner>
+      </div>
+  </ng-template>
 </div>
