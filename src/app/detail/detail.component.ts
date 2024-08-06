@@ -37,7 +37,7 @@ export class DetailComponent implements OnInit {
       this.planetsService.GetPlanetById(this.planetID).subscribe(
         (resp) => {
           this.planetData = resp;
-          this.planetData.backgroundurl="../../assets/images/planets/" + this.planetID + ".png";
+          this.planetData.backgroundurl="../../assets/images/" + this.planetID + ".png";
         }, (err) => {
           console.log(err.error.message);
         });
