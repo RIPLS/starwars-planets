@@ -6,15 +6,9 @@ import { PlanetEntity } from 'src/entities/planet.entity';
   templateUrl: './planet.component.html',
   styleUrls: ['./planet.component.css']
 })
-export class PlanetComponent implements OnInit {
+export class PlanetComponent {
 
   @Input() planetData: PlanetEntity;
-  planetBackground: string;
 
   constructor() { }
-
-  ngOnInit() {
-    this.planetBackground = 'url(' + this.planetData.backgroundurl + ') repeat-x';
-  }
-
 }
