@@ -1,9 +1,7 @@
 # Star Wars Planets
 
 ## Live Version
-You can see a live version in this page:
-
-`https://ripls.github.io/SW_planets/`
+You can see a live version in this page: "https://ripls.github.io/SW_planets/"
 
 ## Description
 The web application was developed with Angular Framework and comprises 2 screens
