@@ -25,7 +25,7 @@
 }
 
 .planet .clouds {
-  background: url(http://artem.anmedio.ru/dev/planet/clouds.png) repeat-x;
+  /* background: url(http://artem.anmedio.ru/dev/planet/clouds.png) repeat-x; */
   width: 300px;
   height: 300px;
   position: absolute;

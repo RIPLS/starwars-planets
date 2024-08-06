@@ -25,6 +25,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/starwars-planets/",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -114,7 +115,6 @@
       }
     }
   },
-  "defaultProject": "SWplanets",
   "cli": {
     "analytics": false
   }

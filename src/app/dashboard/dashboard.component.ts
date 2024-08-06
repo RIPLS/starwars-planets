@@ -36,7 +36,6 @@ export class DashboardComponent implements OnInit {
 
     this.route.queryParams.subscribe(params => {
       this.searchText = params['search'];
-      //Get detail
       this.dataSource.loadPlanets(1, this.searchText);
     });
   }
