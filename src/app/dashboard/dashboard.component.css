@@ -7,14 +7,14 @@
   -webkit-text-stroke: 2px rgb(255, 238, 0);
 }
 
-.spinner-container {
-  margin: auto;
-  width: 10%;
-  padding: 10px;
-}
-
 .subtitle {
   text-align: center;
+  color: white;
+}
+
+.planet-row:hover {
+  cursor: pointer;
+  background-color: #555;
   color: white;
 }
 
@@ -27,4 +27,17 @@
 .clearButton {
   margin: 10px;
   align-self: end;
+}
+
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.7);
+  z-index: 100;
 }
