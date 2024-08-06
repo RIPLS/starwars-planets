@@ -3,6 +3,7 @@
   height: 300px;
   border-radius: 50%;
   overflow: hidden;
+  background: radial-gradient(circle, rgba(255,255,255,0) 60%, rgba(0,0,0,0.3) 100%);
   box-shadow: 0 0 60px -20px rgba(56, 56, 56, 0.72), -14px -15px 40px -10px rgba(211, 211, 211, 0.23);
 }
 
@@ -10,7 +11,7 @@
   width: 100%;
   height: 100%;
   position: absolute;
-  box-shadow: inset -10px -10px 40px #2f2f2f, inset 10px 10px 30px -10px rgba(44, 41, 41, 0.23);
+  box-shadow: inset -20px -50px 60px #2f2f2f,inset 30px 30px 30px 30px rgba(44, 41, 41, 0.23);
   border-radius: 50%;
 }
 
