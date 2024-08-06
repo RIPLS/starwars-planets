@@ -1,6 +1,6 @@
 body {
   padding-top: 100px;
-  background: url(assets/images/stars.png) repeat;
+  background: url(/assets/images/stars.png) repeat;
   top: 0;
   left: 0;
   min-width: 100%;
