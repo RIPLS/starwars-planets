@@ -1,4 +1,5 @@
 # Star Wars Planets
+v0.5
 
 ## Live Version
 You can check a live version on this page: "https://ripls.github.io/starwars-planets/"
